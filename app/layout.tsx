@@ -5,6 +5,7 @@ import { Providers } from "./providers";
 // import Header from "@/app//components/Header";
 // import Footer from "@/app//components/Footer";
 import { Header, Footer } from "@/app/components";
+import LoadingBar from "./components/LoadingBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +21,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="light">
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-400 to-sky-100`}
+      >
         <Providers>
           <Header />
+          <LoadingBar />
           <main
-            className="flex m-auto w-full max-w-7xl min-h-screen 
+            className="flex m-auto xl:container min-h-screen 
                 flex-col items-center justify-between p-3 lg:p-5"
           >
             {children}

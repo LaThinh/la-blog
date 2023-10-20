@@ -1,22 +1,31 @@
 export interface IPost {
   id: string;
+  slug: string;
   title: string;
+  excerpt: string;
   content: {
     html: string;
   };
-  slug: string;
-  coverPhoto: {
-    url: string;
-  };
+  coverPhoto: iPhoto;
+  categories: ICategory[];
   author: {
     name: string;
-    avatar: string;
+    avatar: iPhoto;
   };
-  categories?: ICategory[];
+  createAt: Date;
 }
 
 export interface ICategory {
   id: string;
   name: string;
   slug: string;
+}
+
+export interface iPhoto {
+  id: string;
+  url: string;
+  fileName: string;
+  width: number;
+  height: number;
+  stage?: string;
 }

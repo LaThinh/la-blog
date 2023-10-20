@@ -14,9 +14,9 @@ function PostCard({ post }: { post: IPost }) {
     <div className="post-card">
       <Card>
         <Link href={`/post/${post.slug}`}>
-          <div className="post-image relative aspect-[2/3] overflow-hidden">
+          <div className="post-image relative  overflow-hidden">
             <Image
-              className="object-cover aspect-[2/3] max-w-none w-full ease-in-out duration-200 hover:opacity-90 hover:scale-110"
+              className="object-cover aspect-[2/3] max-h-[450px]  max-w-none w-full ease-in-out duration-200 hover:opacity-90 hover:scale-110"
               src={post.coverPhoto.url}
               alt={post.title}
               width={360}
@@ -31,11 +31,12 @@ function PostCard({ post }: { post: IPost }) {
               {post.title}
             </h3>
           </Link>
+          <p className="line-clamp-3">{post.excerpt}</p>
 
           <ul className="flex gap-2">
             {post?.categories &&
-              post.categories.map((category) => (
-                <li key={category.id}>
+              post.categories.map((category, index) => (
+                <li key={index}>
                   <Button
                     className="border"
                     color="primary"

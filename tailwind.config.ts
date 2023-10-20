@@ -18,6 +18,6 @@ const config: Config = {
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [require("@tailwindcss/container-queries"), nextui()],
 };
 export default config;

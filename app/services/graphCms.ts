@@ -13,6 +13,7 @@ export const getPosts = async () => {
         slug
         title
         updatedAt
+        excerpt
         author {
           name
           id
@@ -32,6 +33,29 @@ export const getPosts = async () => {
           name
           slug
         }
+      }
+    }
+  `;
+
+  const { posts }: { posts: IPost[] } = await request(graphqlAPI, query);
+  return posts;
+};
+
+export const getLastPosts = async (limit?: number) => {
+  const first = limit ? limit : 3;
+
+  const query = gql`
+    {
+      posts(orderBy: datePublished_DESC, first: ${first}) {
+        createdAt
+        datePublished
+        id
+        slug
+        title
+        updatedAt
+        coverPhoto {
+          url
+        }        
       }
     }
   `;
