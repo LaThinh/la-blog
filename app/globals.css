@@ -32,6 +32,13 @@ a {
   @apply text-primary-500 hover:text-orange-500;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  @apply font-bold;
+}
+
 .page-title {
   @apply text-xl lg:text-4xl font-bold mb-5 lg:mb-10 mx-auto text-center;
 }
@@ -42,7 +49,7 @@ a {
 }
 
 .widget-title {
-  @apply text-xl font-bold pb-3 border-b p-5;
+  @apply bg-slate-100 rounded-t-xl text-xl font-bold pb-3 border-b px-5 py-3;
 }
 
 .widget-content {
@@ -54,6 +61,7 @@ a {
 }
 
 .post-content p {
+  @apply text-base lg:text-lg min-h-[24px];
 }
 .post-content pre {
   @apply bg-gray-300 p-5 rounded-lg whitespace-pre-wrap;

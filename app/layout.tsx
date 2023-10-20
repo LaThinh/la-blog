@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 // import Footer from "@/app//components/Footer";
 import { Header, Footer } from "@/app/components";
 import LoadingBar from "./components/LoadingBar";
+import NextBreadcrumb from "./components/Breadcrumb";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,11 @@ export default function RootLayout({
         <Providers>
           <Header />
           <LoadingBar />
+          {/* <NextBreadcrumb
+            homeElement="Home"
+            separator=">"
+            containerClasses="flex gap-2  "
+          /> */}
           <main
             className="flex m-auto xl:container min-h-screen 
                 flex-col items-center justify-between p-3 lg:p-5"

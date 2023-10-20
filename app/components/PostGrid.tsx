@@ -12,16 +12,11 @@ async function PostGrid({ posts }: { posts?: IPost[] }) {
   return (
     <div className="@container  w-full">
       <div
-        className="post-grid grid gap-5 grid-cols-1 
-        @2xl:grid-cols-2 @2xl:gap-6 
+        className="post-grid grid auto-rows-fr gap-6 grid-cols-1 
+        @2xl:grid-cols-2 @2xl:gap-10 
         @4xl:grid-cols-3 @4xl:gap-8 @6xl:grid-cols-4 "
       >
-        {posts &&
-          posts.map((post) => (
-            <div key={post.id}>
-              <PostCard post={post} />
-            </div>
-          ))}
+        {posts && posts.map((post) => <PostCard key={post.id} post={post} />)}
       </div>
     </div>
   );

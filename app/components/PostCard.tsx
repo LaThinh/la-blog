@@ -11,27 +11,25 @@ function PostCard({ post }: { post: IPost }) {
   //console.log(post);
 
   return (
-    <div className="post-card">
-      <Card>
+    <div className="post-card block w-full h-full shadow-md">
+      <Card className="h-full">
         <Link href={`/post/${post.slug}`}>
-          <div className="post-image relative  overflow-hidden">
+          <div className="post-image relative h-full overflow-hidden">
             <Image
               className="object-cover aspect-[2/3] max-h-[450px]  max-w-none w-full ease-in-out duration-200 hover:opacity-90 hover:scale-110"
               src={post.coverPhoto.url}
               alt={post.title}
-              width={360}
+              width={450}
               height={540}
               style={{ objectFit: "cover" }}
             />
           </div>
         </Link>
-        <CardBody>
+        <CardBody className="justify-between">
           <Link href={`/post/${post.slug}`}>
-            <h3 className="text-xl font-semibold h-12 leading-6 mb-4 line-clamp-2	">
-              {post.title}
-            </h3>
+            <h3 className="text-xl font-semibold line-clamp-2	">{post.title}</h3>
           </Link>
-          <p className="line-clamp-3">{post.excerpt}</p>
+          <p className="post-excerpt line-clamp-3 my-2">{post.excerpt}</p>
 
           <ul className="flex gap-2">
             {post?.categories &&

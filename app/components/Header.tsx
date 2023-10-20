@@ -6,7 +6,7 @@ export default async function Header() {
   const categories = await getCategories();
 
   return (
-    <header className="w-full bg-white border-b mb-4 lg:mb-8 sticky top-0 shadow-md z-30">
+    <header className="w-full bg-white border-b mb-5 sticky top-0 shadow-md z-30">
       <div className="mx-auto px-3 py-4 xl:container lg:px-5 flex justify-between items-center">
         <div className="logo">
           <Link

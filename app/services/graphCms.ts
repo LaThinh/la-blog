@@ -87,6 +87,10 @@ export const getPostDetail = async (slug: string): Promise<IPost> => {
         coverPhoto {
           url
         }
+        categories {
+          name
+          slug
+        }
       }
     }
   `;
