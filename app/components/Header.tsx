@@ -17,7 +17,7 @@ export default async function Header() {
           </Link>
         </div>
         <div className="categories">
-          <ul className="items-center gap-2 hidden lg:flex">
+          <ul className="items-center gap-2 hidden md:flex">
             <li className="px-4 font-semibold">
               <Link href={`/category/all`}>All</Link>
             </li>
