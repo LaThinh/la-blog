@@ -28,13 +28,13 @@ export default async function WidgetNewPost({ items }: { items?: number }) {
                     alt={post.title}
                     width={120}
                     height={120}
-                    className="aspect-square w-20 object-cover rounded-sm"
+                    className="aspect-square w-20 object-cover rounded-md"
                   />
                   <div className="flex flex-col gap-2 justify-between">
                     <Link href={`/post/${post.slug}`} className="line-clamp-2">
                       {post.title}
                     </Link>
-                    <div className="post-date text-sm italic">
+                    <div className="post-date text-sm italic dark:text-gray-300">
                       {moment(post.createAt).format("DD-MM-YYYY")}
                     </div>
                   </div>

@@ -36,7 +36,7 @@ const NextBreadcrumb = ({
   const separator = separatorElement ? separatorElement : ">";
   const listClass = containerClasses
     ? containerClasses
-    : "flex gap-2 mb-5 font-semibold";
+    : "flex gap-2 mb-5 font-semibold flex-wrap";
 
   return (
     <div className="w-full text-left">
@@ -53,7 +53,9 @@ const NextBreadcrumb = ({
                 {item.link ? (
                   <Link href={item.link}>{item.name}</Link>
                 ) : (
-                  <span className={` font-normal ${listClasses}`}>
+                  <span
+                    className={` font-normal dark:text-white ${listClasses}`}
+                  >
                     {item.name}
                   </span>
                 )}

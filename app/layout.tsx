@@ -22,9 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="light">
-      <body
-        className={`${inter.className} bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-400 to-sky-100`}
-      >
+      <body className={`${inter.className} `}>
         <Providers>
           <Header />
           <LoadingBar />
@@ -35,7 +33,9 @@ export default function RootLayout({
           /> */}
           <main
             className="flex m-auto xl:container min-h-screen 
-                flex-col items-center justify-between p-3 lg:p-5"
+                flex-col items-center justify-between p-3 lg:p-5
+                bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-400 to-sky-100
+                dark:bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] dark:from-gray-900 dark:to-gray-600 dark:bg-gradient-to-r"
           >
             {children}
           </main>
