@@ -29,7 +29,7 @@ const NextBreadcrumb = ({
   capitalizeLinks,
   listCrumbs,
 }: TBreadCrumbProps) => {
-  const paths = usePathname();
+  const paths = usePathname() || "";
   const pathNames = paths.split("/").filter((path) => path);
 
   const home = homeElement ? homeElement : "Home";

@@ -96,7 +96,9 @@ export default function CommentForm({ slug }: { slug: string }) {
                 className="comment-item bg-gray-100  dark:bg-slate-700 border px-5 py-3 rounded-lg"
               >
                 <div className="comment-header flex flex-wrap justify-between mb-2">
-                  <strong className="comment-name">{comment.name}</strong>
+                  <strong className="comment-name font-semibold">
+                    {comment.name}
+                  </strong>
                   <div className="comment-date text-xs">
                     {moment(comment.createdAt).format("DD/MM/YYYY -  HH:mm:ss")}
                   </div>
