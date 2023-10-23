@@ -7,6 +7,7 @@ import { Avatar, Image } from "@nextui-org/react";
 import moment from "moment";
 import Sidebar from "@/app/components/Sidebar";
 import NextBreadcrumb, { ICrumb } from "@/app/components/Breadcrumb";
+import CommentForm from "@/app/components/CommentForm";
 
 async function PostDetailPage({ params }: { params: { slug: string } }) {
   const post: IPost = await getPostDetail(params.slug);
@@ -22,10 +23,10 @@ async function PostDetailPage({ params }: { params: { slug: string } }) {
       <NextBreadcrumb capitalizeLinks={true} listCrumbs={crumbItems} />
       <div className="flex w-full flex-col lg:flex-row gap-5 justify-between xl:gap-10 ">
         <div
-          className="main flex flex-col basis-full gap-5 lg:flex-1 lg:max-w-[calc(100%-280px)]
-      bg-white border rounded-2xl shadow-md p-3 lg:p-5 xl:p-10"
+          className="main flex flex-col basis-full gap-5 
+          lg:flex-1 lg:gap-8 xl:gap-12 lg:max-w-[calc(100%-280px)]"
         >
-          <article className="post">
+          <article className="post border rounded-2xl shadow-md p-3 lg:p-5 xl:p-10 bg-white dark:bg-slate-700 dark:text-white">
             <div className="post-image mb-10 overflow-hidden">
               <Image
                 className="object-cover  mx-auto shadow-md rounded-xl"
@@ -37,7 +38,7 @@ async function PostDetailPage({ params }: { params: { slug: string } }) {
                 removeWrapper
               />
             </div>
-            <h1 className="page-title post-title border-b pb-5">
+            <h1 className="page-title post-title border-b pb-5 text-gradient">
               {post.title}
             </h1>
             <div className="author flex justify-center gap-5 items-center w-full my-8">
@@ -67,6 +68,10 @@ async function PostDetailPage({ params }: { params: { slug: string } }) {
               dangerouslySetInnerHTML={{ __html: post.content.html }}
             ></div>
           </article>
+
+          <div className="post-comment border rounded-2xl shadow-md p-3 lg:p-5 xl:p-10 bg-white dark:bg-slate-700 dark:text-white">
+            <CommentForm slug={params.slug} />
+          </div>
         </div>
 
         <div className="sidebar basis-full lg:basis-1/4 min-w-[240px]">

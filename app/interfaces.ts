@@ -6,13 +6,14 @@ export interface IPost {
   content: {
     html: string;
   };
-  coverPhoto: iPhoto;
+  coverPhoto: IPhoto;
   categories: ICategory[];
   author: {
     name: string;
-    avatar: iPhoto;
+    avatar: IPhoto;
   };
   createAt: Date;
+  comments?: IComment[];
 }
 
 export interface ICategory {
@@ -21,11 +22,19 @@ export interface ICategory {
   slug: string;
 }
 
-export interface iPhoto {
+export interface IPhoto {
   id: string;
   url: string;
   fileName: string;
   width: number;
   height: number;
   stage?: string;
+}
+
+export interface IComment {
+  id: string;
+  name: string;
+  email: string;
+  comment: string;
+  createdAt: Date;
 }

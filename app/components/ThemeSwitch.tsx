@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Switch,
   useSwitch,
@@ -21,11 +21,17 @@ const ThemeSwitch = (props: SwitchProps) => {
     getWrapperProps,
   } = useSwitch(props);
 
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-
   const changeTheme = () => {
     setTheme(theme == "light" ? "dark" : "light");
   };
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <div className="flex gap-1 items-center">
@@ -44,7 +50,7 @@ const ThemeSwitch = (props: SwitchProps) => {
               "w-8 h-8",
               "flex items-center justify-center",
               "rounded-lg bg-default-100 hover:bg-default-200",
-              "dark:bg-white dark:hover:bg-gray-300",
+              "dark:bg-white dark:hover:bg-gray-300 dark:text-blue-500",
             ],
           })}
           onClick={changeTheme}
@@ -57,19 +63,3 @@ const ThemeSwitch = (props: SwitchProps) => {
 };
 
 export default ThemeSwitch;
-// export default function App() {
-//   return <ThemeSwitch />;
-// }
-
-// import React from 'react'
-// import PropTypes from 'prop-types'
-
-// function ThemeSwitch(props) {
-//   return (
-//     <div>ThemeSwitch</div>
-//   )
-// }
-
-// ThemeSwitch.propTypes = {}
-
-// export default ThemeSwitch

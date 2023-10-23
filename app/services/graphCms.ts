@@ -1,5 +1,5 @@
 import request, { GraphQLClient, gql } from "graphql-request";
-import { ICategory, IPost } from "@/app/interfaces";
+import { ICategory, IComment, IPost } from "@/app/interfaces";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT || "";
 
@@ -169,4 +169,25 @@ export const getPostCategory = async (slug: string): Promise<IPost[]> => {
 
   const { posts }: { posts: IPost[] } = await request(graphqlAPI, query);
   return posts;
+};
+
+export const getCommentBySlug = async (slug: string): Promise<IComment[]> => {
+  const query = gql`
+    {
+      comments (where: {post: {slug: "${slug}"}}) {
+        id
+        name
+        email
+        comment
+        createdAt
+      }
+    }
+  `;
+
+  const { comments }: { comments: IComment[] } = await request(
+    graphqlAPI,
+    query
+  );
+
+  return comments;
 };

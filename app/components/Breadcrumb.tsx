@@ -36,32 +36,28 @@ const NextBreadcrumb = ({
   const separator = separatorElement ? separatorElement : ">";
   const listClass = containerClasses
     ? containerClasses
-    : "flex gap-2 mb-5 font-semibold flex-wrap";
+    : "flex gap-2 mb-5 font-semibold flex-wrap dark:text-white";
 
   return (
     <div className="w-full text-left">
       <ul className={listClass}>
-        <li className={listClasses}>
+        <li className={listClasses} key={"home"}>
           <Link href={"/"}>{home}</Link>
         </li>
         {pathNames.length > 0 && separator}
 
         {listCrumbs &&
           listCrumbs.map((item, index) => (
-            <>
-              <li key={index} className={listClasses}>
-                {item.link ? (
-                  <Link href={item.link}>{item.name}</Link>
-                ) : (
-                  <span
-                    className={` font-normal dark:text-white ${listClasses}`}
-                  >
-                    {item.name}
-                  </span>
-                )}
-              </li>
+            <li key={index} className={listClasses}>
+              {item.link ? (
+                <Link href={item.link}>{item.name}</Link>
+              ) : (
+                <span className={`font-normal  ${listClasses}`}>
+                  {item.name}
+                </span>
+              )}
               {index < listCrumbs.length - 1 && separator}
-            </>
+            </li>
           ))}
 
         {!listCrumbs &&

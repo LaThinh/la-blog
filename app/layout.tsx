@@ -2,11 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-// import Header from "@/app//components/Header";
-// import Footer from "@/app//components/Footer";
 import { Header, Footer } from "@/app/components";
 import LoadingBar from "./components/LoadingBar";
-import NextBreadcrumb from "./components/Breadcrumb";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,22 +18,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="light">
-      <body className={`${inter.className} `}>
+    <html lang="en" className="light" suppressHydrationWarning>
+      <body
+        className={`${inter.className} 
+      bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-400 to-sky-100
+      dark:bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] dark:from-gray-900 dark:to-gray-600 dark:bg-gradient-to-t
+      `}
+      >
         <Providers>
           <Header />
           <LoadingBar />
-          {/* <NextBreadcrumb
-            homeElement="Home"
-            separator=">"
-            containerClasses="flex gap-2  "
-          /> */}
-          <main
-            className="flex m-auto xl:container min-h-screen 
-                flex-col items-center justify-between p-3 lg:p-5
-                bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-400 to-sky-100
-                dark:bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] dark:from-gray-900 dark:to-gray-600 dark:bg-gradient-to-r"
-          >
+          <main className=" m-auto p-3 lg:p-5 xl:p-10 xl:container min-h-screen flex flex-col items-center justify-between">
             {children}
           </main>
           <Footer />
