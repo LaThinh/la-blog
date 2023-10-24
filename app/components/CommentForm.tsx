@@ -9,6 +9,7 @@ import { submitComment } from "../services/mutation";
 import { IComment } from "@/app/interfaces";
 import { getCommentBySlug } from "../services/graphCms";
 import moment from "moment";
+import { comment } from "postcss";
 
 export default function CommentForm({ slug }: { slug: string }) {
   const {
@@ -85,12 +86,14 @@ export default function CommentForm({ slug }: { slug: string }) {
   };
 
   return (
-    <div className="w-full max-w-3xl m-auto @container">
-      <div className="comment-list">
-        <h3 className="my-3 text-xl font-semibold">Comments:</h3>
-        <ul className="comments flex flex-col gap-3">
-          {comments &&
-            comments.map((comment) => (
+    <div className="w-full flex flex-col gap-8 @container">
+      {comments && comments.length > 0 && (
+        <div className="comment-list">
+          <h3 className="mb-5 text-xl font-semibold text-gradient-blue">
+            Comments:
+          </h3>
+          <ul className="comments flex flex-col gap-3">
+            {comments.map((comment) => (
               <div
                 key={comment.id}
                 className="comment-item bg-gray-100  dark:bg-slate-700 border px-5 py-3 rounded-lg"
@@ -107,11 +110,14 @@ export default function CommentForm({ slug }: { slug: string }) {
                 <p className="comment-content text-sm">{comment.comment}</p>
               </div>
             ))}
-        </ul>
-      </div>
+          </ul>
+        </div>
+      )}
 
-      <div className="comment-form mt-12">
-        <h3 className="text-xl font-semibold mb-2">Add comment</h3>
+      <div className="comment-form">
+        <h3 className="text-xl font-semibold mb-5 text-gradient-blue">
+          Add comment
+        </h3>
 
         <form
           className="flex flex-wrap gap-4 justify-between"

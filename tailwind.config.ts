@@ -36,6 +36,8 @@ const config: Config = {
   darkMode: "class",
   plugins: [
     require("@tailwindcss/container-queries"),
+    require("@tailwindcss/typography"),
+
     nextui({
       prefix: "nextui", // prefix for themes variables
       addCommonColors: false, // override common colors (e.g. "blue", "green", "pink").

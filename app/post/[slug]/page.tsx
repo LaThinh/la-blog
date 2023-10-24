@@ -19,14 +19,17 @@ async function PostDetailPage({ params }: { params: { slug: string } }) {
     { name: post.title },
   ];
   return (
-    <>
+    <div className="mx-auto w-full max-w-7xl">
       <NextBreadcrumb capitalizeLinks={true} listCrumbs={crumbItems} />
       <div className="flex w-full flex-col lg:flex-row gap-5 justify-between xl:gap-10 ">
         <div
           className="main flex flex-col basis-full gap-5 
           lg:flex-1 lg:gap-8 xl:gap-12 lg:max-w-[calc(100%-280px)]"
         >
-          <article className="post border rounded-2xl shadow-md p-3 lg:p-5 xl:p-10 bg-white dark:bg-slate-700 dark:text-white">
+          <article
+            className="post border rounded-2xl shadow-md p-5 lg:p-8 xl:p-12
+           bg-white dark:bg-slate-700 dark:text-white"
+          >
             <div className="post-image mb-10 overflow-hidden">
               <Image
                 className="object-cover  mx-auto shadow-md rounded-xl"
@@ -42,9 +45,12 @@ async function PostDetailPage({ params }: { params: { slug: string } }) {
               {post.title}
             </h1>
             <div className="author flex justify-center gap-5 items-center w-full my-8">
-              <div className="flex items-center gap-5">
-                <h5 className="text-xl font-semibold">{post.author.name}</h5>
-                {/* <Image
+              {post.author && (
+                <div className="flex items-center gap-5">
+                  <h5 className="text-xl font-semibold">
+                    {post?.author?.name}
+                  </h5>
+                  {/* <Image
                   src={post.author.avatar.url}
                   alt={post.author.name}
                   width={64}
@@ -52,24 +58,26 @@ async function PostDetailPage({ params }: { params: { slug: string } }) {
                   sizes="64"
                   className="object-cover rounded-full aspect-square shadow-md"
                 /> */}
-                <Avatar
-                  isBordered
-                  size="lg"
-                  color="success"
-                  src={post.author.avatar.url}
-                />
-              </div>
+                  <Avatar
+                    isBordered
+                    size="lg"
+                    color="success"
+                    src={post?.author?.avatar.url}
+                  />
+                </div>
+              )}
+
               <div className="post-date">
                 {moment(post.createAt).format("DD/MM/YYYY")}
               </div>
             </div>
             <div
-              className="post-content p-3"
+              className="post-content"
               dangerouslySetInnerHTML={{ __html: post.content.html }}
             ></div>
           </article>
 
-          <div className="post-comment border rounded-2xl shadow-md p-3 lg:p-5 xl:p-10 bg-white dark:bg-slate-700 dark:text-white">
+          <div className="post-comment border rounded-2xl shadow-md p-5 lg:p-8 xl:p-12 bg-white dark:bg-slate-700 dark:text-white">
             <CommentForm slug={params.slug} />
           </div>
         </div>
@@ -78,7 +86,7 @@ async function PostDetailPage({ params }: { params: { slug: string } }) {
           <Sidebar />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -11,7 +11,7 @@ function PostCard({ post }: { post: IPost }) {
   //console.log(post);
 
   return (
-    <div className="post-card block w-full h-full shadow-md">
+    <div className="post-card block w-full h-full shadow-md rounded-lg overflow-hidden">
       <Card className="h-full">
         <Link href={`/post/${post.slug}`}>
           <div className="post-image relative h-full overflow-hidden">
@@ -29,7 +29,7 @@ function PostCard({ post }: { post: IPost }) {
           <Link href={`/post/${post.slug}`}>
             <h3 className="text-xl font-semibold line-clamp-2	">{post.title}</h3>
           </Link>
-          <p className="post-excerpt line-clamp-3 my-2">{post.excerpt}</p>
+          <p className="post-excerpt line-clamp-3 my-3">{post.excerpt}</p>
 
           <ul className="flex gap-2">
             {post?.categories &&

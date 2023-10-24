@@ -5,6 +5,7 @@ import {
   getPostCategory,
   getCategoryBySlug,
   getPosts,
+  getCategories,
 } from "@/app/services/graphCms";
 import React from "react";
 
@@ -15,6 +16,7 @@ export default async function CategoryPage({
 }) {
   let category: ICategory[] = await getCategoryBySlug(params.slug);
   let posts: IPost[]; // = await getPostCategory(params.slug);
+  //const categories = await getCategories();
 
   const slug = params.slug;
   if (slug === "all") {
@@ -23,10 +25,15 @@ export default async function CategoryPage({
     posts = await getPostCategory(params.slug);
   }
 
+  const showSidebar = false;
+
   return (
     <>
       <div className="flex w-full flex-col lg:flex-row gap-5 justify-between xl:gap-10 ">
-        <div className="main flex flex-col w-full basis-full gap-5 lg:flex-1 lg:max-w-[calc(100%-300px)]">
+        <div
+          className={`col-main flex flex-col w-full basis-full gap-5 lg:flex-1 
+        ${showSidebar && "lg:max-w-[calc(100%-300px)]"} `}
+        >
           {slug && slug === "all" ? (
             <div className="page-header bg-white p-5">
               <h1 className="page-title !mb-0">Category: All</h1>
@@ -45,9 +52,11 @@ export default async function CategoryPage({
 
           <PostGrid posts={posts} />
         </div>
-        <div className="sidebar basis-full lg:basis-1/4 min-w-[280px]">
-          <Sidebar />
-        </div>
+        {showSidebar && (
+          <div className="sidebar basis-full lg:basis-1/4 min-w-[280px]">
+            <Sidebar />
+          </div>
+        )}
       </div>
     </>
   );

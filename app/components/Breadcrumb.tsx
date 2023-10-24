@@ -41,14 +41,14 @@ const NextBreadcrumb = ({
   return (
     <div className="w-full text-left">
       <ul className={listClass}>
-        <li className={listClasses} key={"home"}>
+        <li className={`flex gap-2 ${listClasses}`} key={"home"}>
           <Link href={"/"}>{home}</Link>
+          {pathNames.length > 0 && <span>{separator}</span>}
         </li>
-        {pathNames.length > 0 && separator}
 
         {listCrumbs &&
           listCrumbs.map((item, index) => (
-            <li key={index} className={listClasses}>
+            <li key={index} className={`flex gap-2 ${listClasses}`}>
               {item.link ? (
                 <Link href={item.link}>{item.name}</Link>
               ) : (
@@ -56,7 +56,7 @@ const NextBreadcrumb = ({
                   {item.name}
                 </span>
               )}
-              {index < listCrumbs.length - 1 && separator}
+              {index < listCrumbs.length - 1 && <span>{separator}</span>}
             </li>
           ))}
 

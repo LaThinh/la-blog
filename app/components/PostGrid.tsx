@@ -9,6 +9,8 @@ async function PostGrid({ posts }: { posts?: IPost[] }) {
     posts = await getPosts();
   }
 
+  console.log(posts.length);
+
   return (
     <div className="@container  w-full">
       <div

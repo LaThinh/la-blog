@@ -41,6 +41,49 @@ export const getPosts = async () => {
   return posts;
 };
 
+export const getPostsPage = async (
+  page: number,
+  limit: number
+): Promise<IPost[]> => {
+  const query = gql`
+    {
+      posts(orderBy: datePublished_DESC, first: ${limit}, skip: ${
+    limit * page
+  }) {
+        createdAt
+        datePublished
+        id
+        slug
+        title
+        updatedAt
+        excerpt
+        author {
+          name
+          id
+          avatar {
+            fileName
+            url
+          }
+        }
+        coverPhoto {
+          publishedAt
+          createdBy {
+            id
+          }
+          url
+        }
+        categories {
+          name
+          slug
+        }
+      }
+    }
+  `;
+
+  const { posts }: { posts: IPost[] } = await request(graphqlAPI, query);
+  return posts;
+};
+
 export const getLastPosts = async (limit?: number) => {
   const first = limit ? limit : 3;
 
@@ -53,6 +96,7 @@ export const getLastPosts = async (limit?: number) => {
         slug
         title
         updatedAt
+        excerpt
         coverPhoto {
           url
         }        
@@ -141,10 +185,11 @@ export const getCategoryBySlug = async (slug: string): Promise<ICategory[]> => {
 export const getPostCategory = async (slug: string): Promise<IPost[]> => {
   const query = gql`
     {
-      posts(where: {categories_some: {slug: "${slug}"}}) {
+      posts(orderBy: datePublished_DESC, where: {categories_some: {slug: "${slug}"}}) {
         id
         title
         slug
+        excerpt
         createdAt
         datePublished
         author {
