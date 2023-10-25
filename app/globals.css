@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -36,7 +37,7 @@ h1,
 h2,
 h3,
 h4 {
-  @apply font-bold;
+  @apply font-roboto font-bold;
 }
 
 .text-gradient-blue {
@@ -49,7 +50,7 @@ h4 {
 
 .text-gradient {
   @apply animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 
-  bg-clip-text text-transparent text-2xl @sm:text-3xl @md:text-4xl @2xl:text-5xl font-black;
+  bg-clip-text text-transparent text-2xl @sm:text-3xl @md:text-4xl @2xl:text-5xl;
 }
 
 /* Widget */
@@ -66,11 +67,11 @@ h4 {
 }
 
 .post-content {
-  @apply flex flex-col gap-4;
+  @apply flex flex-col gap-4 text-justify;
 }
 
 .post-content p {
-  @apply text-base lg:text-lg min-h-[24px];
+  @apply text-sm lg:text-base min-h-[24px] mb-3;
 }
 .post-content pre {
   @apply bg-gray-300 dark:bg-slate-600 border p-5 rounded-lg overflow-auto;
@@ -87,4 +88,12 @@ h4 {
 
 .post-content table th {
   @apply bg-gray-200 dark:bg-slate-500;
+}
+
+.post-content ol {
+  @apply list-decimal pl-4;
+}
+
+.post-content li {
+  @apply mb-2;
 }

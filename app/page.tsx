@@ -18,7 +18,7 @@ export default async function Home() {
           <LatestPostsGrid
             pageSize={pageSize}
             pageAutoLoad={4}
-            postData={posts}
+            //postData={posts}
           />
         )}
       </div>

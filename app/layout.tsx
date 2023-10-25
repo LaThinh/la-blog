@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Header, Footer } from "@/app/components";
 import LoadingBar from "./components/LoadingBar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+});
+// const roboto = Roboto_Condensed({
+//   subsets: ["latin"],
+//   weight: ["300", "400", "700"],
+// });
 
 export const metadata: Metadata = {
   title: "La Blog | Next App",

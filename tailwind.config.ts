@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { nextui } from "@nextui-org/react";
+import { Roboto_Condensed } from "next/font/google";
 
 const config: Config = {
   content: [
@@ -18,6 +19,9 @@ const config: Config = {
 
       animation: {
         text: "text 5s ease infinite",
+      },
+      fontFamily: {
+        roboto: ["Roboto Condensed"],
       },
       keyframes: {
         text: {
