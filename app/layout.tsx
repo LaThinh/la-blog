@@ -22,14 +22,13 @@ export default function RootLayout({
       <body
         className={`${inter.className} 
         bg-gradient-to-t from-stone-200 to-neutral-100
-      
       dark:bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] dark:from-gray-900 dark:to-gray-600 dark:bg-gradient-to-t
       `}
       >
         <Providers>
           <Header />
           <LoadingBar />
-          <main className=" m-auto p-5 lg:p-8 xl:p-12 xl:container min-h-screen flex flex-col items-center justify-between">
+          <main className=" m-auto p-3 md:p-5 lg:p-8 xl:p-12 xl:container min-h-screen flex flex-col items-center justify-between">
             {children}
           </main>
           <Footer />
