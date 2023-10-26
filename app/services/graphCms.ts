@@ -116,6 +116,7 @@ export const getPostDetail = async (slug: string): Promise<IPost> => {
         title
         slug
         createdAt
+        excerpt
         datePublished
         content {
           html

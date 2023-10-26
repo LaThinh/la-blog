@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 import { nextui } from "@nextui-org/react";
-import { Roboto_Condensed } from "next/font/google";
+import { Dancing_Script, Roboto_Condensed } from "next/font/google";
 
 const config: Config = {
   content: [
@@ -22,6 +22,7 @@ const config: Config = {
       },
       fontFamily: {
         roboto: ["Roboto Condensed"],
+        script: ["'Great Vibes'", "cursive"],
       },
       keyframes: {
         text: {

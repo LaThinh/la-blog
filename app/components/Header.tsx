@@ -1,12 +1,11 @@
-//import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
 import { getCategories } from "@/app/services/graphCms";
-import ThemeSwitch from "./ThemeSwitch";
-
-// const ThemeSwitch = dynamic(() => import("@/app/components/ThemeSwitch"), {
-//   ssr: false,
-// });
+//import ThemeSwitch from "./ThemeSwitch";
+import dynamic from "next/dynamic";
+const ThemeSwitch = dynamic(() => import("@/app/components/ThemeSwitch"), {
+  ssr: false,
+});
 
 export default async function Header() {
   const categories = await getCategories();
@@ -19,8 +18,8 @@ export default async function Header() {
             href={"/"}
             className="cursor-pointer text-blue-500 dark:text-white"
           >
-            <span className="text-gradient !text-4xl !lg:text-5xl">
-              La Blogs
+            <span className="text-gradient font-script !text-4xl !lg:text-6xl font-semibold">
+              La Blog
             </span>
           </Link>
         </div>
@@ -39,7 +38,6 @@ export default async function Header() {
             ))}
           </ul>
         </div>
-
         <div className="setting order-3">
           <ThemeSwitch />
         </div>

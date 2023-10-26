@@ -8,6 +8,27 @@ import moment from "moment";
 import Sidebar from "@/app/components/Sidebar";
 import NextBreadcrumb, { ICrumb } from "@/app/components/Breadcrumb";
 import CommentForm from "@/app/components/CommentForm";
+import { Metadata, ResolvingMetadata } from "next";
+
+export async function generateMetadata(
+  { params }: { params: { slug: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const post: IPost = await getPostDetail(params.slug);
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: post.title + " - " + post?.categories[0]?.name + " | La Blogs",
+    description: post.excerpt,
+    category: post.categories[0].name,
+    metadataBase: new URL(post.coverPhoto.url),
+    openGraph: {
+      images: [post.coverPhoto.url, ...previousImages],
+    },
+  };
+}
 
 async function PostDetailPage({ params }: { params: { slug: string } }) {
   const post: IPost = await getPostDetail(params.slug);
@@ -32,7 +53,7 @@ async function PostDetailPage({ params }: { params: { slug: string } }) {
           >
             <div className="post-image overflow-hidden">
               <Image
-                className="object-cover  mx-auto shadow-md rounded-t-xl rounded-b-none"
+                className="object-cover w-full max-h-[90vh]  mx-auto shadow-md rounded-t-xl rounded-b-none"
                 src={post.coverPhoto.url}
                 alt={post.title}
                 //width={800}
