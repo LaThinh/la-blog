@@ -2,7 +2,7 @@ export interface IPost {
   id: string;
   slug: string;
   title: string;
-  excerpt: string;
+  excerpt?: string;
   content: {
     html: string;
   };

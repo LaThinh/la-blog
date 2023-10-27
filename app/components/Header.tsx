@@ -3,6 +3,7 @@ import React from "react";
 import { getCategories } from "@/app/services/graphCms";
 //import ThemeSwitch from "./ThemeSwitch";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 const ThemeSwitch = dynamic(() => import("@/app/components/ThemeSwitch"), {
   ssr: false,
 });
@@ -16,9 +17,9 @@ export default async function Header() {
         <div className="logo order-2 md:order-1">
           <Link
             href={"/"}
-            className="cursor-pointer text-blue-500 dark:text-white"
+            className="cursor-pointer flex items-center gap-1 text-blue-500 dark:text-white"
           >
-            <span className="text-gradient font-script !text-4xl !lg:text-6xl font-semibold">
+            <span className="text-gradient !leading-normal font-script !text-4xl !lg:text-6xl font-semibold">
               La Blog
             </span>
           </Link>

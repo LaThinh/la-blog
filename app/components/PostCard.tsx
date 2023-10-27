@@ -29,7 +29,12 @@ function PostCard({ post }: { post: IPost }) {
           <Link href={`/post/${post.slug}`}>
             <h3 className="text-xl font-semibold line-clamp-2	">{post.title}</h3>
           </Link>
-          <p className="post-excerpt line-clamp-3 my-3">{post.excerpt}</p>
+          {post?.excerpt && (
+            <p
+              className="post-excerpt line-clamp-4 my-2"
+              dangerouslySetInnerHTML={{ __html: post.excerpt }}
+            ></p>
+          )}
 
           <ul className="flex gap-2">
             {post?.categories &&

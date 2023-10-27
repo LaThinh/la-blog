@@ -12,8 +12,8 @@ export default async function Home() {
   const posts: IPost[] = await getPostsPage(0, pageSize);
 
   return (
-    <div className="flex w-full flex-col md:flex-row gap-5 justify-between xl:gap-10 ">
-      <div className="main flex flex-col w-full basis-full gap-5 md:flex-1 md:max-w-[calc(100%-260px)]">
+    <div className="flex w-full flex-col xl:flex-row gap-5 justify-between xl:gap-10 ">
+      <div className="main flex flex-col w-full basis-full gap-5 lg:flex-1 xl:max-w-[calc(100%-260px)]">
         {posts && posts.length > 0 && (
           <LatestPostsGrid
             pageSize={pageSize}
@@ -22,7 +22,7 @@ export default async function Home() {
           />
         )}
       </div>
-      <div className="sidebar basis-full md:basis-1/4 min-w-[240px]">
+      <div className="sidebar basis-full xl:basis-1/4 min-w-[240px] max-w-[300px]">
         <Sidebar />
       </div>
     </div>

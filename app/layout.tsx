@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { Header, Footer } from "@/app/components";
 import LoadingBar from "./components/LoadingBar";
+import Head from "next/head";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,6 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="light" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body
         className={`${inter.className} 
         bg-gradient-to-t from-stone-200 to-neutral-100
@@ -35,7 +39,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           <LoadingBar />
-          <main className=" m-auto p-3 md:p-5 lg:p-8 xl:p-12 xl:container min-h-screen flex flex-col items-center justify-between">
+          <main className=" m-auto p-3 md:p-5 lg:p-8 xl:p-12 2xl:container min-h-screen flex flex-col items-center justify-between">
             {children}
           </main>
           <Footer />
