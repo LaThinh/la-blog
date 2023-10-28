@@ -22,7 +22,7 @@
 body {
   min-height: 100vh;
   color: rgb(var(--foreground-rgb));
-  @apply bg-gradient-to-t from-stone-200 to-neutral-100;
+  @apply bg-gradient-to-t from-stone-200 to-neutral-100 text-foreground;
   @apply dark:bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] dark:from-gray-900 dark:to-gray-600 dark:bg-gradient-to-t;
   /* background: linear-gradient(
       to bottom,
