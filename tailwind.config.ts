@@ -53,6 +53,8 @@ const config: Config = {
         light: {
           layout: {}, // light theme layout tokens
           colors: {
+            background: "#ffffff",
+            foreground: "#333333",
             primary: {
               50: "#e6f1fe",
               100: "#cce3fd",

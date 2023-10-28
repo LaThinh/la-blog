@@ -12,7 +12,7 @@ function PostCard({ post }: { post: IPost }) {
 
   return (
     <div className="post-card block w-full h-full shadow-md rounded-lg overflow-hidden">
-      <Card className="h-full">
+      <Card className="h-full dark:bg-slate-700 dark:border">
         <Link href={`/post/${post.slug}`}>
           <div className="post-image relative h-full overflow-hidden">
             <Image

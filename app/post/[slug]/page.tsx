@@ -2,8 +2,8 @@ import React from "react";
 import { gql } from "graphql-request";
 import { IPost } from "@/app/interfaces";
 import { getPostDetail } from "@/app/services/graphCms";
-//import Image from "next/image";
-import { Avatar, Image } from "@nextui-org/react";
+import Image from "next/image";
+import { Avatar } from "@nextui-org/react";
 import moment from "moment";
 import Sidebar from "@/app/components/Sidebar";
 import NextBreadcrumb, { ICrumb } from "@/app/components/Breadcrumb";
@@ -56,12 +56,16 @@ async function PostDetailPage({ params }: { params: { slug: string } }) {
                 className="object-cover w-full max-h-[90vh]  mx-auto shadow-md rounded-t-xl rounded-b-none"
                 src={post.coverPhoto.url}
                 alt={post.title}
-                //width={800}
-                //height={1200}
-                //priority
-                removeWrapper
+                width={1000}
+                height={1200}
+                priority
+                //removeWrapper
               />
             </div>
+
+            <h1 className="page-title post-title border-b p-5 text-gradient">
+              {post.title}
+            </h1>
 
             <div className="author flex justify-center gap-5 items-center w-full p-5">
               {post.author && (
@@ -90,10 +94,6 @@ async function PostDetailPage({ params }: { params: { slug: string } }) {
                 {moment(post.createAt).format("DD/MM/YYYY")}
               </div>
             </div>
-
-            <h1 className="page-title post-title border-b p-5 text-gradient">
-              {post.title}
-            </h1>
 
             <div
               className="post-content p-5 lg:p-8 xl:p-12"

@@ -31,9 +31,8 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
-        className={`${inter.className} 
-        bg-gradient-to-t from-stone-200 to-neutral-100
-      dark:bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] dark:from-gray-900 dark:to-gray-600 dark:bg-gradient-to-t
+        className={`${inter.className}
+        
       `}
       >
         <Providers>
