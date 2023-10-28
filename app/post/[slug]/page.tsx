@@ -49,7 +49,7 @@ async function PostDetailPage({ params }: { params: { slug: string } }) {
         >
           <article
             className="post border rounded-2xl shadow-md
-           bg-white dark:bg-slate-700 dark:text-white"
+           bg-white text-foreground dark:bg-slate-700 dark:text-white"
           >
             <div className="post-image overflow-hidden">
               <Image
