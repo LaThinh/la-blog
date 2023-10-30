@@ -1,5 +1,5 @@
 "use client";
-
+import dynamic from "next/dynamic";
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button, Input } from "@nextui-org/react";
@@ -8,6 +8,8 @@ import { IPost } from "@/app/interfaces";
 import { searchPostByQuery } from "@/app/services/graphCms";
 import PostGrid from "@/app/components/PostGrid";
 import Loading from "@/app/components/Loading";
+
+//export const dynamic = "auto";
 
 export function SearchPage() {
   const searchParams = useSearchParams();
@@ -37,9 +39,9 @@ export function SearchPage() {
     searchPosts();
   }, [query]);
 
-  const handleInputChange = (event: any) => {
-    setQuery(event.target.value);
-  };
+  // const handleInputChange = (event: any) => {
+  //   setQuery(event.target.value);
+  // };
 
   const handleKeyDown = (event: any) => {
     if (event.key === "Enter") {
