@@ -5,6 +5,7 @@ import { Providers } from "./providers";
 import { Header, Footer } from "@/app/components";
 import LoadingBar from "./components/LoadingBar";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
           <LoadingBar />
           <main className=" m-auto p-3 md:p-5 lg:p-8 xl:p-12 2xl:container min-h-screen flex flex-col items-center justify-between">
             {children}
+            <Analytics />
           </main>
           <Footer />
         </Providers>

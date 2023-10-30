@@ -22,7 +22,7 @@ export default async function Home() {
           />
         )}
       </div>
-      <div className="sidebar basis-full xl:basis-1/4 min-w-[240px] max-w-[300px]">
+      <div className="sidebar basis-full xl:basis-1/4 min-w-[240px]">
         <Sidebar />
       </div>
     </div>

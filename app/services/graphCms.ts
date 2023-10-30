@@ -237,3 +237,23 @@ export const getCommentBySlug = async (slug: string): Promise<IComment[]> => {
 
   return comments;
 };
+
+export const searchPostByQuery = async (query: string): Promise<IPost[]> => {
+  const querySearch = gql`
+    {
+      posts(where: {_search: "${query}"}) {
+        id
+        slug
+        title
+        excerpt
+        createdAt
+        coverPhoto {
+          url
+        }
+      }
+    }
+  `;
+
+  const { posts }: { posts: IPost[] } = await request(graphqlAPI, querySearch);
+  return posts;
+};
